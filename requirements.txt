@@ -1,6 +1,7 @@
 Django==1.7.4
 SQLAlchemy==0.9.8
 lxml==3.4.2
+selenium==2.44.0
 simplejson==3.6.5
 sqlsoup==0.9.0
 wsgiref==0.1.2
