@@ -5,9 +5,12 @@ import json
 
 
 class Index(View):
-    def get(self, request, a, b):
+    def get(self, request, xml=None, section=None, id_variable=None,
+            id_variable_value=None):
         out = {}
-        out[a] = a
-        out[b] = b
-        # return HttpResponse('<title>%s %s</title>' % (a, b))
+        out['xml'] = xml
+        out['section'] = section
+        out['id_variable'] = id_variable
+        out['id_variable_value'] = id_variable_value
+        out['get_var'] = request.GET
         return HttpResponse(json.dumps(out), content_type='application/json')

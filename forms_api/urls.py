@@ -3,10 +3,8 @@ from django.contrib import admin
 from general_api import views as general_api_views
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'forms_api.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^(\w+)/(\w+)/(\w+)/(\w+)', general_api_views.Index.as_view()),
+    url(r'^(\w+)/(\w+)/(\w+)', general_api_views.Index.as_view()),
     url(r'^(\w+)/(\w+)/', general_api_views.Index.as_view()),
 )

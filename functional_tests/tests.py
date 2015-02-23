@@ -4,7 +4,6 @@ import unittest
 import json
 
 
-
 class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
@@ -17,11 +16,12 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
 
     def test_general_url_works(self):
+        """test general url returns json"""
         self.browser.get('http://localhost:8000/bladebla/etc/')
         soup = BeautifulSoup(self.browser.page_source)
         dict_from_soup = json.loads(soup.find('body').text)
-        self.assertIn('bladebla', dict_from_soup['bladebla'])
-        self.assertIn('etc', dict_from_soup['etc'])
+        self.assertIn('bladebla', dict_from_soup['xml'])
+        self.assertIn('etc', dict_from_soup['section'])
 
 
 if __name__ == '__main__':
