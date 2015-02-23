@@ -14,8 +14,9 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
 
     def test_general_url_works(self):
-        self.browser.get('http://localhost:8000/bladebla')
+        self.browser.get('http://localhost:8000/bladebla/etc/')
         self.assertIn('bladebla', self.browser.title)
+        self.assertIn('etc', self.browser.title)
 
 
 if __name__ == '__main__':
