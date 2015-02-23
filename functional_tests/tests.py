@@ -13,6 +13,10 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.refresh()
         self.browser.quit()
 
+    def test_general_url_works(self):
+        self.browser.get('http://localhost:8000/bladebla')
+        self.assertIn('bladebla', self.browser.title)
+
 
 if __name__ == '__main__':
     unittest.main()
