@@ -36,4 +36,4 @@ class Index(View):
     def delete(self, request, xml=None, section=None, id_variable=None,
              id_variable_value=None):
         data = apps_xml.apps[xml].delete_data(section, id_variable, id_variable_value)
-        return HttpResponse(json.dumps(data), content_type='application/json', status=204)
+        return HttpResponse(None, status=204)

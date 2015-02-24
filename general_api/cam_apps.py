@@ -43,7 +43,11 @@ class Application(object):
         return data
 
     def delete_data(self, section_number, id_variable, id_variable_value):
-        pass
+        self.db.table = self.db.entity(self.get_table_name())
+        instance = self.db.table.get(int(id_variable_value))
+        self.db.delete(instance)
+        self.db.commit()
+        return
 
     def get_table_name(self):
         return 'volunteers'
