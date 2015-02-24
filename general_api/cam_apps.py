@@ -1,5 +1,6 @@
 from lxml import objectify
 import sqlsoup
+import simplejson
 
 
 class Application(object):
@@ -15,7 +16,6 @@ class Application(object):
 # test with alternative db, sqlite.
 # Any data I'd like to save to normal django models?
 
-
     def get_data(self, section_number, id_variable, id_variable_value):
         # note that if this GET requires html you'll need to check the variables
         # Have a is_dynamic() flag for a section to test
@@ -24,10 +24,15 @@ class Application(object):
         data.pop('_sa_instance_state')
         return data
 
-    def insert_data(self, section_number, id_variable, id_variable_value):
-        pass
+    def insert_data(self, section_number, id_variable, id_variable_value, body):
+        self.db.table = self.db.entity(self.get_table_name())
+        json_dict = simplejson.JSONDecoder().decode(body)
+        data = self.db.table.insert(**json_dict).__dict__
+        data.pop('_sa_instance_state')
+        self.db.commit()
+        return data
 
-    def update_data(self, section_number, id_variable, id_variable_value):
+    def update_data(self, section_number, id_variable, id_variable_value, body):
         pass
 
     def delete_data(self, section_number, id_variable, id_variable_value):
