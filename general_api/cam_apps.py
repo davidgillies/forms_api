@@ -15,11 +15,6 @@ class Application(object):
 # test with alternative db, sqlite.
 # Any data I'd like to save to normal django models?
 
-    def get_table_name(self):
-        return 'volunteers'
-
-    def get_section(self, section_number):
-        return self.xml_object.section[int(section_number)]
 
     def get_data(self, section_number, id_variable, id_variable_value):
         # note that if this GET requires html you'll need to check the variables
@@ -29,6 +24,21 @@ class Application(object):
         data.pop('_sa_instance_state')
         return data
 
+    def insert_data(self, section_number, id_variable, id_variable_value):
+        pass
+
+    def update_data(self, section_number, id_variable, id_variable_value):
+        pass
+
+    def delete_data(self, section_number, id_variable, id_variable_value):
+        pass
+
+    def get_table_name(self):
+        return 'volunteers'
+
     def is_dynamic(self, section):
         # test if section has a dynamic variable
         return False
+
+    def get_section(self, section_number):
+        return self.xml_object.section[int(section_number)]
