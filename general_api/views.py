@@ -19,3 +19,18 @@ class Index(View):
 #        out['get_var'] = request.GET
 #        out['filename'] = apps_xml.apps[xml].name
         return HttpResponse(json.dumps(data), content_type='application/json')
+
+    def post(self, request, xml=None, section=None, id_variable=None,
+             id_variable_value=None):
+        data = apps_xml.apps[xml].insert_data(section, id_variable, id_variable_value)
+        return HttpResponse(json.dumps(data), content_type='application/json', status=201)
+
+    def put(self, request, xml=None, section=None, id_variable=None,
+             id_variable_value=None):
+        data = apps_xml.apps[xml].update_data(section, id_variable, id_variable_value)
+        return HttpResponse(json.dumps(data), content_type='application/json')
+
+    def delete(self, request, xml=None, section=None, id_variable=None,
+             id_variable_value=None):
+        data = apps_xml.apps[xml].delete_data(section, id_variable, id_variable_value)
+        return HttpResponse(json.dumps(data), content_type='application/json', status=204)

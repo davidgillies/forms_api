@@ -7,7 +7,7 @@ class Application(object):
         self.name = name
         self.xml = xml
         self.xml_object = objectify.fromstring(self.xml)
-        # self.variable_mapping
+        # self.variable_mappings
         # self.dbs get dbs from xml or somewhere
         self.db = sqlsoup.SQLSoup('mysql+pymysql://david:david@localhost:3306/sm_play')
 

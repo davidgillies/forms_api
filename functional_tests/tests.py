@@ -4,7 +4,7 @@ import unittest
 import json
 
 
-class NewVisitorTest(unittest.TestCase):
+class APITest(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
