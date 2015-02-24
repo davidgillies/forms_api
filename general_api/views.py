@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import View
 import json
-import apps_xml 
+import apps_xml
 
 
 class Index(View):

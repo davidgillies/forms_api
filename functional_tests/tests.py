@@ -15,13 +15,13 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.refresh()
         self.browser.quit()
 
-    def test_general_url_works(self):
+    def test_read(self):
         """test general url returns json"""
-        self.browser.get('http://localhost:8000/bladebla/etc/')
+        self.browser.get('http://localhost:8000/fenland/1/volunteer_id/1')
         soup = BeautifulSoup(self.browser.page_source)
         dict_from_soup = json.loads(soup.find('body').text)
-        self.assertIn('bladebla', dict_from_soup['xml'])
-        self.assertIn('etc', dict_from_soup['section'])
+        self.assertIn('Gillies', dict_from_soup['surname'])
+        self.assertIn('David', dict_from_soup['forenames'])
 
 
 if __name__ == '__main__':
