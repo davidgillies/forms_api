@@ -33,7 +33,14 @@ class Application(object):
         return data
 
     def update_data(self, section_number, id_variable, id_variable_value, body):
-        pass
+        self.db.table = self.db.entity(self.get_table_name())
+        json_dict = simplejson.JSONDecoder().decode(body)
+        # problem: can't put a variable into this filter_by must be a 
+        # database column name
+        data = self.db.table.filter_by(id=int(id_variable_value)).update(json_dict)
+        data = json_dict
+        self.db.commit()
+        return data
 
     def delete_data(self, section_number, id_variable, id_variable_value):
         pass
