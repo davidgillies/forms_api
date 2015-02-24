@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import unittest
 import json
 
+# tests need to import xml and get data and simulate input...
 
 class APITest(unittest.TestCase):
 
@@ -22,6 +23,9 @@ class APITest(unittest.TestCase):
         dict_from_soup = json.loads(soup.find('body').text)
         self.assertIn('Gillies', dict_from_soup['surname'])
         self.assertIn('David', dict_from_soup['forenames'])
+        
+    def test_input(self):
+        pass
 
 
 if __name__ == '__main__':

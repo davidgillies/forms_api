@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^(\w+)/(\w+)/(\w+)/(\w+)', csrf_exempt(general_api_views.Index.as_view())),
-    url(r'^(\w+)/(\w+)/(\w+)', csrf_exempt(general_api_views.Index.as_view())),
-    url(r'^(\w+)/(\w+)/', csrf_exempt(general_api_views.Index.as_view())),
+    url(r'^(\w+)/(\w+)/(\w+)/(\w+)', csrf_exempt(general_api_views.APIView.as_view())),
+    url(r'^(\w+)/(\w+)/(\w+)', csrf_exempt(general_api_views.APIView.as_view())),
+    url(r'^(\w+)/(\w+)/', csrf_exempt(general_api_views.APIView.as_view())),
 )
